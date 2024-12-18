@@ -41,8 +41,8 @@ abstract class RouteType {
   const factory RouteType.custom({
     RouteTransitionsBuilder? transitionsBuilder,
     CustomRouteBuilder? customRouteBuilder,
-    int? durationInMilliseconds,
-    int? reverseDurationInMilliseconds,
+    Duration? duration,
+    Duration? reverseDuration,
     bool opaque,
     bool barrierDismissible,
     String? barrierLabel,
@@ -110,15 +110,15 @@ class CustomRouteType extends RouteType {
   ///  },
   final CustomRouteBuilder? customRouteBuilder;
 
-  /// route transition duration in milliseconds
+  /// route transition duration
   /// is passed to [PageRouteBuilder]
   /// this property is ignored unless a [transitionBuilder] is provided
-  final int? durationInMilliseconds;
+  final Duration? duration;
 
-  /// route reverse transition duration in milliseconds
+  /// route reverse transition duration
   /// is passed to [PageRouteBuilder]
   /// this property is ignored unless a [transitionBuilder] is provided
-  final int? reverseDurationInMilliseconds;
+  final Duration? reverseDuration;
 
   /// passed to the barrierDismissible property in [PageRouteBuilder]
   ///
@@ -141,8 +141,8 @@ class CustomRouteType extends RouteType {
     this.barrierLabel,
     this.barrierColor,
     this.transitionsBuilder,
-    this.durationInMilliseconds,
-    this.reverseDurationInMilliseconds,
+    this.duration,
+    this.reverseDuration,
     super.opaque,
     this.barrierDismissible = false,
   }) : super._();
@@ -155,9 +155,8 @@ class CustomRouteType extends RouteType {
           runtimeType == other.runtimeType &&
           transitionsBuilder == other.transitionsBuilder &&
           customRouteBuilder == other.customRouteBuilder &&
-          durationInMilliseconds == other.durationInMilliseconds &&
-          reverseDurationInMilliseconds ==
-              other.reverseDurationInMilliseconds &&
+          duration == other.duration &&
+          reverseDuration == other.reverseDuration &&
           barrierDismissible == other.barrierDismissible &&
           barrierLabel == other.barrierLabel &&
           barrierColor == other.barrierColor;
@@ -167,8 +166,8 @@ class CustomRouteType extends RouteType {
       super.hashCode ^
       transitionsBuilder.hashCode ^
       customRouteBuilder.hashCode ^
-      durationInMilliseconds.hashCode ^
-      reverseDurationInMilliseconds.hashCode ^
+      duration.hashCode ^
+      reverseDuration.hashCode ^
       barrierDismissible.hashCode ^
       barrierLabel.hashCode ^
       barrierColor.hashCode;

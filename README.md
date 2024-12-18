@@ -1339,7 +1339,7 @@ CustomRoute(
   page: LoginRoute.page,
   // TransitionsBuilders class contains a preset of common transitions builders.
   transitionsBuilder: TransitionsBuilders.slideBottom,
-  durationInMilliseconds: 400,
+  duration: Duration(milliseconds: 400),
 )
 ```
 
